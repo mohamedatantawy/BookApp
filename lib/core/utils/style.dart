@@ -1,8 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:product/constants.dart';
 
 abstract class Style {
-  static const titlemeduim = TextStyle(
+  static const textstyle14 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+  );
+  static const textstyle16 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
+  static const textstyle18 = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+  );
+  static const textstyle20 = TextStyle(
     fontSize: 20,
-    fontWeight: FontWeight.w600
+    fontWeight: FontWeight.normal,
+  );
+  static const textstyle30 = TextStyle(
+    fontSize: 30,
+    fontWeight: FontWeight.normal,
+    fontFamily: kgtsertrafont,
   );
 }
