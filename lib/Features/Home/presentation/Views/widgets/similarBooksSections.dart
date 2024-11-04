@@ -8,8 +8,8 @@ class similarBooksSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Expanded(
-      child:  Column(
-       crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'You can also like',

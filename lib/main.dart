@@ -14,7 +14,7 @@ class Bookapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-routerConfig: Gorouter.router,
+      routerConfig: Gorouter.router,
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: kprimaycolor,

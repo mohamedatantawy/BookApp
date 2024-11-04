@@ -7,8 +7,8 @@ import 'package:product/main.dart';
 
 abstract class Gorouter {
   static const kHomeView = '/HomeView';
-    static const kBookDetailView = '/BookDetailView';
-    static const ksearchView = '/searchView';
+  static const kBookDetailView = '/BookDetailView';
+  static const ksearchView = '/searchView';
 
 // GoRouter configuration
   static final router = GoRouter(
@@ -18,15 +18,15 @@ abstract class Gorouter {
         builder: (context, state) => const Splashview(),
       ),
       GoRoute(
-        path:kHomeView,
+        path: kHomeView,
         builder: (context, state) => const Homeview(),
       ),
       GoRoute(
-        path:ksearchView,
+        path: ksearchView,
         builder: (context, state) => const Serachview(),
       ),
       GoRoute(
-        path:kBookDetailView,
+        path: kBookDetailView,
         builder: (context, state) => const Bookdetailview(),
       ),
     ],

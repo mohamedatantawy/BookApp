@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class CustomeAppBar2 extends StatelessWidget {

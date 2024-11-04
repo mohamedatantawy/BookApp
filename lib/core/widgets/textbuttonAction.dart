@@ -8,7 +8,8 @@ class TextbuttonAction extends StatelessWidget {
     required this.backgroundcolor,
     this.borderRadius,
     required this.color,
-    this.fontsize, this.fontWeight,
+    this.fontsize,
+    this.fontWeight,
   });
   final String text;
   final Color backgroundcolor;
@@ -33,10 +34,7 @@ class TextbuttonAction extends StatelessWidget {
         child: Text(
           text,
           style: Style.textstyle18.copyWith(
-            color: color,
-            fontSize: fontsize,
-            fontWeight: fontWeight
-          ),
+              color: color, fontSize: fontsize, fontWeight: fontWeight),
         ),
       ),
     );
