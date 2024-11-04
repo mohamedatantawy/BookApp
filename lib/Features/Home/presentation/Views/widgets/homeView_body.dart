@@ -50,12 +50,12 @@ class HomeviewBody extends StatelessWidget {
         SliverFillRemaining(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 30),
-            child: Best_seller_listview(),
+            child: Best_seller_listview(
+              scrollPhysics: NeverScrollableScrollPhysics(),
+            ),
           ),
         )
       ],
     );
-
-   
   }
 }
