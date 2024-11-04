@@ -8,9 +8,11 @@ class RowReting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         const Icon(
           FontAwesomeIcons.solidStar,
+          size: 14,
           color: Colors.yellow,
         ),
         const SizedBox(
@@ -23,10 +25,13 @@ class RowReting extends StatelessWidget {
         const SizedBox(
           width: 5,
         ),
-        Text(
-          '(3250)',
-          style: Style.textstyle16.copyWith(
-            color: const Color(0xff707070),
+        Opacity(
+          opacity: 0.5,
+          child: Text(
+            '(3250)',
+            style: Style.textstyle16.copyWith(
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
       ],

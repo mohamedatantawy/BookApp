@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:product/Features/Home/presentation/Views/HomeView.dart';
 import 'package:product/Features/Splash/data/presentation/View/widget/slidingText.dart';
 import 'package:product/constants.dart';
+import 'package:product/core/utils/GoRouter.dart';
 import 'package:product/core/utils/assets.dart';
 
 class SplashviewBody extends StatefulWidget {
@@ -24,8 +25,6 @@ class _SplashviewBodyState extends State<SplashviewBody>
     navigatoHome();
   }
 
-  
-
   @override
   void dispose() {
     super.dispose();
@@ -39,7 +38,6 @@ class _SplashviewBodyState extends State<SplashviewBody>
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Image.asset(AssetsData.logo),
-
         slidingText(sideanimation: sideanimation),
       ],
     );
@@ -47,18 +45,19 @@ class _SplashviewBodyState extends State<SplashviewBody>
 
   void initslidinganimated() {
     animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds:3));
-    sideanimation = Tween<Offset>(begin: const Offset(0,4), end: Offset.zero)
+        AnimationController(vsync: this, duration: const Duration(seconds: 3));
+    sideanimation = Tween<Offset>(begin: const Offset(0, 4), end: Offset.zero)
         .animate(animationController);
     animationController.forward();
   }
 
-
   void navigatoHome() {
     Future.delayed(
-     const Duration(seconds: 5),
+      const Duration(seconds: 5),
       () {
-       Get.to(()=>const Homeview(),transition: Transition.fadeIn,duration:ktersationDuration);
+        GoRouter.of(context).push(Gorouter.kHomeView);
+
+        // Get.to(()=>const Homeview(),transition: Transition.fadeIn,duration:ktersationDuration);
       },
     );
   }
