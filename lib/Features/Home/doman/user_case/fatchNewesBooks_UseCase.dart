@@ -1,3 +1,4 @@
+
 import 'package:dartz/dartz.dart';
 import 'package:product/Features/Home/doman/Entities/Book_entity.dart';
 import 'package:product/Features/Home/doman/Repos/Home_Repos.dart';
@@ -12,7 +13,7 @@ class FatchfeaturedbookisUseCase extends UseCase<List<BookEntity>,noParam> {
   @override
   Future<Either<Failure, List<BookEntity>>> call([noParam? param]) async{
     // TODO: implement call
-    return  await homeRepos.fatchFeaturedBooks();
+    return  await homeRepos.fatchNewesdBooks();
   }
 }
 
