@@ -1,6 +1,9 @@
+import 'package:hive/hive.dart';
 import 'package:product/Features/Home/data/models/bookmodels/bookmodels.dart';
 import 'package:product/Features/Home/doman/Entities/Book_entity.dart';
+import 'package:product/constants.dart';
 import 'package:product/core/utils/ApiService.dart';
+import 'package:product/core/utils/functions/SaveBooksBox.dart';
 
 abstract class HomeRemotedataSource {
   Future<List<BookEntity>> fatchFeaturedBooks();
@@ -13,16 +16,18 @@ class homeRemotedataSourceImpl extends HomeRemotedataSource {
   homeRemotedataSourceImpl(this.apiservice);
   @override
   Future<List<BookEntity>> fatchFeaturedBooks() async {
-    var data =
-        await apiservice.get(endpoint: 'volumes?q=programming&Filtering=free-ebooks');
+    var data = await apiservice.get(
+        endpoint: 'volumes?q=programming&Filtering=free-ebooks');
     List<BookEntity> books = getbookslist(data);
+    saveBooksinBox(books,khiveFeatuerBox);
     return books;
   }
 
-  
+
   @override
   Future<List<BookEntity>> fatchNewesdBooks() async {
-    var data = await apiservice.get(endpoint: 'volumes?q=programming&Filtering=free-ebooks&Sorting=newest');
+    var data = await apiservice.get(
+        endpoint: 'volumes?q=programming&Filtering=free-ebooks&Sorting=newest');
     List<BookEntity> books = getbookslist(data);
     return books;
   }
@@ -34,5 +39,4 @@ class homeRemotedataSourceImpl extends HomeRemotedataSource {
     }
     return books;
   }
-
 }
