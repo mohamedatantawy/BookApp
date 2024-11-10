@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:product/Features/Home/data/dataSources/home_localDataSource.dart';
 import 'package:product/Features/Home/data/dataSources/home_remoteData_Source.dart';
 import 'package:product/Features/Home/doman/Entities/Book_entity.dart';
@@ -22,7 +23,12 @@ class HomeRepoImpl extends HomeRepos {
       books = await homeRemotedataSource.fatchFeaturedBooks();
       return right(books);
     } catch (e) {
-      return left(Failure());
+       if (e is DioException) {
+        return left(ServerFailure.Errormassage(e));
+      }
+      return left(
+        ServerFailure(e.toString()),
+      );
     }
   }
 
@@ -37,7 +43,12 @@ class HomeRepoImpl extends HomeRepos {
       books = await homeRemotedataSource.fatchNewesdBooks();
       return right(books);
     } on Exception catch (e) {
-      return left(Failure());
+      if (e is DioException) {
+        return left(ServerFailure.Errormassage(e));
+      }
+      return left(
+        ServerFailure(e.toString()),
+      );
     }
   }
 }
