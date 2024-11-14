@@ -44,7 +44,7 @@ class booksDetailSections extends StatelessWidget {
         const SizedBox(
           height: 18,
         ),
-        const RowReting(),
+        const RowReting(rate: 3.8,number: 2000,),
         const SizedBox(
           height: 10,
         ),

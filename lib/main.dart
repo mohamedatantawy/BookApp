@@ -42,14 +42,14 @@ class Bookapp extends StatelessWidget {
             FatchfeaturedbookisUseCase(
               getit.get<HomeRepoImpl>(),
             ),
-          );
+          )..fetchfeaturedbooks();
         }),
         BlocProvider(create: (context) {
           return NewestBooksCubit(
             FatchNewestbookisUseCase(
               getit.get<HomeRepoImpl>(),
             ),
-          );
+          )..fetchnewestBooks();
         })
       ],
       child: MaterialApp.router(

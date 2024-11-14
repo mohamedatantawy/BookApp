@@ -27,7 +27,9 @@ class SearchviewBody extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          Expanded(child: Best_seller_listview()),
+          Expanded(child: Best_seller_listview(
+            books: [],
+          )),
         ],
       ),
     );

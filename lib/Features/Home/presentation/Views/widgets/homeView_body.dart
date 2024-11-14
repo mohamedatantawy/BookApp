@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:product/Features/Home/presentation/Views/widgets/Best_seller_List_view_item.dart';
 import 'package:product/Features/Home/presentation/Views/widgets/Best_sller_ListView.dart';
+import 'package:product/Features/Home/presentation/Views/widgets/Bwst_seller_lsitViewBlocConsummer.dart';
 import 'package:product/Features/Home/presentation/Views/widgets/CustomeAppbar.dart';
 import 'package:product/Features/Home/presentation/Views/widgets/customeListView.dart';
+import 'package:product/Features/Home/presentation/Views/widgets/customeListViewBlocBuider.dart';
 import 'package:product/Features/Home/presentation/Views/widgets/customeListViewItem.dart';
 import 'package:product/constants.dart';
 import 'package:product/core/utils/assets.dart';
@@ -30,7 +32,7 @@ class HomeviewBody extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              CustomeListView(),
+              CustomeListViewBlocBuilder(),
               SizedBox(
                 height: 50,
               ),
@@ -50,9 +52,7 @@ class HomeviewBody extends StatelessWidget {
         SliverFillRemaining(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 30),
-            child: Best_seller_listview(
-              scrollPhysics: NeverScrollableScrollPhysics(),
-            ),
+            child: Best_seller_listViewBlocConsumer(),
           ),
         )
       ],

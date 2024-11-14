@@ -11,6 +11,15 @@ final class FeaturedBooksInitial extends FeaturedBooksState {}
 
 final class FeaturedBookloading extends FeaturedBooksState {}
 
+final class FeaturedBookpagnationloading extends FeaturedBooksState {}
+
+final class FeaturedBookpagnationfailure extends FeaturedBooksState {
+  final String errmassage;
+
+  FeaturedBookpagnationfailure(this.errmassage);
+
+}
+
 final class FeaturedBooksfailure extends FeaturedBooksState {
   final String errmassage;
 

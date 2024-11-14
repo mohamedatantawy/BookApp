@@ -6,7 +6,7 @@ import 'package:product/core/utils/ApiService.dart';
 import 'package:product/core/utils/functions/SaveBooksBox.dart';
 
 abstract class HomeRemotedataSource {
-  Future<List<BookEntity>> fatchFeaturedBooks();
+  Future<List<BookEntity>> fatchFeaturedBooks({int pagenumber = 0});
   Future<List<BookEntity>> fatchNewesdBooks();
 }
 
@@ -15,9 +15,11 @@ class homeRemotedataSourceImpl extends HomeRemotedataSource {
 
   homeRemotedataSourceImpl(this.apiservice);
   @override
-  Future<List<BookEntity>> fatchFeaturedBooks() async {
+  Future<List<BookEntity>> fatchFeaturedBooks({int pagenumber = 0}) async {
+    pagenumber *= 10;
+
     var data = await apiservice.get(
-        endpoint: 'volumes?q=programming&Filtering=free-ebooks');
+        endpoint: 'volumes?q=programming&stratIndex=40');
     List<BookEntity> books = getbookslist(data);
     saveBooksinBox(books, khiveFeatuerBox);
     return books;
@@ -26,7 +28,7 @@ class homeRemotedataSourceImpl extends HomeRemotedataSource {
   @override
   Future<List<BookEntity>> fatchNewesdBooks() async {
     var data = await apiservice.get(
-        endpoint: 'volumes?q=programming&Filtering=free-ebooks&Sorting=newest');
+        endpoint: 'volumes?q=programming&stratIndex=40');
     List<BookEntity> books = getbookslist(data);
     saveBooksinBox(books, khiveNewestBox);
     return books;
@@ -34,7 +36,7 @@ class homeRemotedataSourceImpl extends HomeRemotedataSource {
 
   List<BookEntity> getbookslist(Map<String, dynamic> data) {
     List<BookEntity> books = [];
-    for (var book in data['item']) {
+    for (var book in data['items']) {
       books.add(Bookmodels.fromJson(book));
     }
     return books;
