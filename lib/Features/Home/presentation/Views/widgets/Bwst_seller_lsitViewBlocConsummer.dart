@@ -31,7 +31,7 @@ class _Best_seller_listViewBlocConsumerState
       if (state is NewestBooksSuccess  ) {
         return Best_seller_listview(
           books: books,
-          scrollPhysics: const NeverScrollableScrollPhysics(),
+         // scrollPhysics: const NeverScrollableScrollPhysics(),
         );
       } else if (state is NewestBooksfailure) {
         return Text(state.errmassage);

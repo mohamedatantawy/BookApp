@@ -7,7 +7,7 @@ import 'package:product/core/utils/functions/SaveBooksBox.dart';
 
 abstract class HomeRemotedataSource {
   Future<List<BookEntity>> fatchFeaturedBooks({int pagenumber = 0});
-  Future<List<BookEntity>> fatchNewesdBooks();
+  Future<List<BookEntity>> fatchNewesdBooks({int pagenumber = 0});
 }
 
 class homeRemotedataSourceImpl extends HomeRemotedataSource {
@@ -26,9 +26,9 @@ class homeRemotedataSourceImpl extends HomeRemotedataSource {
   }
 
   @override
-  Future<List<BookEntity>> fatchNewesdBooks() async {
+  Future<List<BookEntity>> fatchNewesdBooks({int pagenumber = 0}) async {
     var data = await apiservice.get(
-        endpoint: 'volumes?q=programming&stratIndex=40');
+        endpoint: 'volumes?q=programming&stratIndex=${pagenumber*10}');
     List<BookEntity> books = getbookslist(data);
     saveBooksinBox(books, khiveNewestBox);
     return books;

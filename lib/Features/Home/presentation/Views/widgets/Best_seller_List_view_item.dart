@@ -10,10 +10,13 @@ import 'package:product/core/utils/assets.dart';
 import 'package:product/core/utils/style.dart';
 
 class BestsellerListViewItem extends StatelessWidget {
-  const BestsellerListViewItem({super.key, required this.books});
+   BestsellerListViewItem({super.key, required this.books,});
   final BookEntity books;
+
+   
   @override
   Widget build(BuildContext context) {
+    
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(Gorouter.kBookDetailView);
@@ -55,7 +58,7 @@ class BestsellerListViewItem extends StatelessWidget {
                       height: 3,
                     ),
                     Text(
-                      books.authorname??'',
+                      books.authorname ?? '',
                       style: Style.textstyle14.copyWith(
                           fontWeight: FontWeight.w500,
                           color: const Color(0xff707070)),
@@ -63,16 +66,35 @@ class BestsellerListViewItem extends StatelessWidget {
                     const SizedBox(
                       height: 3,
                     ),
+                    books.price==0?                    
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "${books.price}"r'$',
+                          "Free" ,
                           style: Style.textstyle20.copyWith(
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                         RowReting(rate: books.rating??3.8,number: 2000,),
+                        RowReting(
+                          rate: books.rating ?? 3.8,
+                          number: 2000,
+                        ),
+                      ],
+                    ):
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "${books.price}" r'$',
+                          style: Style.textstyle20.copyWith(
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        RowReting(
+                          rate: books.rating ?? 3.8,
+                          number: 2000,
+                        ),
                       ],
                     ),
                   ],

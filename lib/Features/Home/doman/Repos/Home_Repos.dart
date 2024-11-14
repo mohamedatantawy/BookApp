@@ -4,6 +4,6 @@ import 'package:product/core/errors/failure.dart';
 
 abstract class HomeRepos {
   Future<Either< Failure,List<BookEntity>>> fatchFeaturedBooks({int pagenumber =0});
-    Future<Either<Failure,List<BookEntity>>> fatchNewesdBooks();
+    Future<Either<Failure,List<BookEntity>>> fatchNewesdBooks({int pagenumber =0});
   
 }

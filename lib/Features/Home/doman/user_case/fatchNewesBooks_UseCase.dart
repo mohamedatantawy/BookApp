@@ -5,15 +5,17 @@ import 'package:product/Features/Home/doman/Repos/Home_Repos.dart';
 import 'package:product/core/Use_Case/UseCase.dart';
 import 'package:product/core/errors/failure.dart';
 
-class FatchNewestbookisUseCase extends UseCase<List<BookEntity>,noParam> {
+class FatchNewestbookisUseCase extends UseCase<List<BookEntity>,int> {
   final HomeRepos homeRepos;
 
   FatchNewestbookisUseCase(this.homeRepos);
 
   @override
-  Future<Either<Failure, List<BookEntity>>> call([noParam? param]) async{
+  Future<Either<Failure, List<BookEntity>>> call([int param=0]) async{
     // TODO: implement call
-    return  await homeRepos.fatchNewesdBooks();
+    return  await homeRepos.fatchNewesdBooks(
+      pagenumber:  param
+    );
   }
 }
 
